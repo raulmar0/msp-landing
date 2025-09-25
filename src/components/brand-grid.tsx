@@ -84,12 +84,12 @@ export default function BrandGrid() {
               width: isHovered ? 'max-content' : 'max-content',
             }}
           >
-            {/* Triple repetición para scroll manual suave */}
-            {Array.from({ length: 3 }, (_, seriesIndex) =>
+            {/* Repeticiones múltiples para contenido infinito */}
+            {Array.from({ length: 6 }, (_, seriesIndex) =>
               brandLogos.map((brand, index) => (
                 <div 
                   key={`${brand.id}-${seriesIndex}-${index}`} 
-                  className="flex-shrink-0 w-48 h-24 flex justify-center items-center mx-6 select-none"
+                  className="flex-shrink-0 w-48 h-24 flex justify-center items-center mx-10 select-none"
                 >
                   <div className="relative w-full h-full">
                     <Image
@@ -129,12 +129,12 @@ export default function BrandGrid() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translateX(calc(-100% / 6));
           }
         }
         
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 45s linear infinite;
         }
         
         .animate-none {

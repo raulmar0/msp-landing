@@ -1,18 +1,86 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+// Logos reales de clientes
+const clientLogos = [
+  {
+    id: "cemex",
+    name: "Cemex",
+    imageUrl: "/logos-clientes/Cemex.png",
+    alt: "Cemex - Construcción y Materiales"
+  },
+  {
+    id: "acuity-brands",
+    name: "Acuity Brands", 
+    imageUrl: "/logos-clientes/acuitybrands.png",
+    alt: "Acuity Brands - Iluminación y Tecnología"
+  },
+  {
+    id: "dall",
+    name: "Dall",
+    imageUrl: "/logos-clientes/daltile-cuadrado.webp",
+    alt: "Dall - Industria Manufacturera"
+  },
+  {
+    id: "gen",
+    name: "GEN",
+    imageUrl: "/logos-clientes/gen.png",
+    alt: "GEN - Tecnología Industrial"
+  },
+  {
+    id: "kellogs",
+    name: "Kellogg's",
+    imageUrl: "/logos-clientes/kellogs2_.png",
+    alt: "Kellogg's - Industria Alimentaria"
+  },
+  {
+    id: "mars",
+    name: "Mars",
+    imageUrl: "/logos-clientes/mars.png",
+    alt: "Mars - Industria Alimentaria"
+  },
+  {
+    id: "metalsa",
+    name: "Metalsa",
+    imageUrl: "/logos-clientes/metalsa2.png",
+    alt: "Metalsa - Industria Automotriz"
+  },
+  {
+    id: "panasonic",
+    name: "Panasonic",
+    imageUrl: "/logos-clientes/panasonic.png",
+    alt: "Panasonic - Tecnología y Electrónicos"
+  },
+  {
+    id: "sigma",
+    name: "Sigma",
+    imageUrl: "/logos-clientes/sigma.png",
+    alt: "Sigma - Industria Alimentaria"
+  },
+  {
+    id: "uanl",
+    name: "UANL",
+    imageUrl: "/logos-clientes/uanl.png",
+    alt: "Universidad Autónoma de Nuevo León"
+  },
+  {
+    id: "cliente-3",
+    name: "Cliente Industrial",
+    imageUrl: "/logos-clientes/3.png",
+    alt: "Cliente Industrial"
+  },
+  {
+    id: "intentonidec",
+    name: "Cliente Tecnológico",
+    imageUrl: "/logos-clientes/intentonidec2.png",
+    alt: "Cliente Tecnológico"
+  }
+];
 
 export default function ClientLogos() {
-  const clientLogos = PlaceHolderImages.filter(p => p.id.startsWith('client-'));
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
-    Autoplay({ delay: 3000, stopOnInteraction: false })
-  ]);
-  
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <section id="clients" className="w-full bg-card py-12 md:py-24">
       <div className="container">
@@ -24,24 +92,89 @@ export default function ClientLogos() {
             Nuestro compromiso con la calidad y el servicio nos ha ganado la confianza de empresas de renombre.
           </p>
         </div>
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {[...clientLogos, ...clientLogos].map((logo, index) => (
-              <div key={`${logo.id}-${index}`} className="flex-shrink-0 flex-grow-0 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 p-4">
-                <div className="relative h-20 grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100">
-                  <Image
-                    src={logo.imageUrl}
-                    alt={logo.description}
-                    fill
-                    style={{ objectFit: 'contain' }}
-                    data-ai-hint={logo.imageHint}
-                  />
+        
+        {/* Marquesina híbrida de clientes */}
+        <div 
+          className={`marquee-container overflow-hidden relative ${
+            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+          }`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          style={{
+            scrollbarWidth: 'none', // Firefox
+            msOverflowStyle: 'none', // IE
+          }}
+        >
+          <div 
+            className={`marquee-content flex ${
+              isHovered ? 'animate-none' : 'animate-marquee'
+            }`}
+            style={{
+              width: isHovered ? 'max-content' : 'max-content',
+            }}
+          >
+            {/* Repeticiones múltiples para contenido infinito */}
+            {Array.from({ length: 5 }, (_, seriesIndex) =>
+              clientLogos.map((client, index) => (
+                <div 
+                  key={`${client.id}-${seriesIndex}-${index}`} 
+                  className="flex-shrink-0 w-64 h-36 flex justify-center items-center mx-2 select-none"
+                >
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={client.imageUrl}
+                      alt={client.alt}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                      className="transition-all duration-300 hover:scale-105"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .marquee-container {
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        /* Ocultar scrollbar en WebKit browsers */
+        .marquee-container::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .marquee-content {
+          width: max-content;
+          will-change: transform;
+        }
+        
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 5));
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        
+        .animate-none {
+          animation: none !important;
+        }
+        
+        /* Transición suave entre estados */
+        .marquee-content {
+          transition: all 0.3s ease;
+        }
+      `}</style>
     </section>
   );
 }

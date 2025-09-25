@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Facebook, Phone, Mail, MapPin } from "lucide-react";
+import { Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -113,23 +113,36 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="mt-8 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-sm text-primary-foreground/80">
-            © 2025 MSP Del Noreste. Todos los derechos reservados.
-          </span>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <span className="text-sm text-primary-foreground/80">
+              © 2025 MSP Del Noreste. Todos los derechos reservados.
+            </span>
+            <span className="text-xs text-primary-foreground/60">
+              Sitio web creado por{" "}
+              <Link 
+                href="https://solvic.tech" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-foreground/80 hover:text-primary-foreground underline transition-colors"
+              >
+                solvic.tech
+              </Link>
+            </span>
+          </div>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
-              <Link href="#" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
-              <Link href="#" aria-label="LinkedIn">
+              <Link 
+                href="https://www.linkedin.com/company/msp-del-noreste" 
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="h-5 w-5" />
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
-              <Link href="#" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
+              <Link href="#" aria-label="YouTube">
+                <Youtube className="h-5 w-5" />
               </Link>
             </Button>
           </div>
