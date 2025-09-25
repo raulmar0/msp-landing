@@ -51,6 +51,17 @@ const brandLogos = [
 
 export default function BrandGrid() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section id="brands" className="w-full py-12 md:py-24">
@@ -67,10 +78,10 @@ export default function BrandGrid() {
         {/* Marquesina híbrida con scroll manual */}
         <div 
           className={`marquee-container overflow-hidden relative ${
-            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+            (isHovered && !isMobile) || isMobile ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
           }`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => !isMobile && setIsHovered(true)}
+          onMouseLeave={() => !isMobile && setIsHovered(false)}
           style={{
             scrollbarWidth: 'none', // Firefox
             msOverflowStyle: 'none', // IE
@@ -78,10 +89,10 @@ export default function BrandGrid() {
         >
           <div 
             className={`marquee-content flex ${
-              isHovered ? 'animate-none' : 'animate-marquee'
+              ((isHovered && !isMobile) || isMobile) ? 'animate-none' : 'animate-marquee'
             }`}
             style={{
-              width: isHovered ? 'max-content' : 'max-content',
+              width: ((isHovered && !isMobile) || isMobile) ? 'max-content' : 'max-content',
             }}
           >
             {/* Repeticiones múltiples para contenido infinito */}
