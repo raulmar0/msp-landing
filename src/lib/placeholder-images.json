@@ -1,3 +1,106 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "promo-smc",
+      "description": "SMC Promotion",
+      "imageUrl": "https://images.unsplash.com/photo-1600715502630-c9300abe78a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kdXN0cmlhbCUyMG1hY2hpbmVyeXxlbnwwfHx8fDE3NTg3OTUwNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial machinery"
+    },
+    {
+      "id": "promo-balluff",
+      "description": "BALLUFF Promotion",
+      "imageUrl": "https://images.unsplash.com/photo-1717386255777-ce60792a2a56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYWN0b3J5JTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NTg3MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "factory automation"
+    },
+    {
+      "id": "promo-rittal",
+      "description": "RITTAL Promotion",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1579274216947-86eaa4b00475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzZXJ2ZXIlMjByYWNrfGVufDB8fHx8MTc1ODgyMjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "server rack"
+    },
+    {
+      "id": "promo-phoenix-contact",
+      "description": "PHOENIX CONTACT Promotion",
+      "imageUrl": "https://images.unsplash.com/photo-1597260491651-ee327fc487b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxlbGVjdHJpY2FsJTIwY29tcG9uZW50c3xlbnwwfHx8fDE3NTg4MjIyMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical components"
+    },
+    {
+      "id": "brand-smc",
+      "description": "SMC Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1627897242601-44b57448865b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxTTUMlMjBsb2dvfGVufDB8fHx8MTc1ODgyMjIzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "SMC logo"
+    },
+    {
+      "id": "brand-balluff",
+      "description": "BALLUFF Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1719955090806-e603e515c5c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxCQUxMVUZGJTIwbG9nb3xlbnwwfHx8fDE3NTg4MjIyMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "BALLUFF logo"
+    },
+    {
+      "id": "brand-rittal",
+      "description": "RITTAL Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1669217541257-f46f1d24712a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxSSVRUQUwlMjBsb2dvfGVufDB8fHx8MTc1ODgyMjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "RITTAL logo"
+    },
+    {
+      "id": "brand-cormac",
+      "description": "CORMAC Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1739055547874-4fe440a2bfea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxDT1JNQUMlMjBsb2dvfGVufDB8fHx8MTc1ODgyMjIzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "CORMAC logo"
+    },
+    {
+      "id": "brand-phoenix-contact",
+      "description": "PHOENIX CONTACT Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1739055548825-c55c6fa7646b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxQSE9FTklYJTIwQ09OVEFDVCUyMGxvZ298ZW58MHx8fHwxNzU4ODIyMjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "PHOENIX CONTACT logo"
+    },
+    {
+      "id": "brand-delta",
+      "description": "DELTA Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1744390166695-d797a8f913f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxERUxUQSUyMGxvZ298ZW58MHx8fHwxNzU4ODIyMjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "DELTA logo"
+    },
+    {
+      "id": "brand-prevost",
+      "description": "PREVOST Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1653499676737-becf2c9562c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxQUkVWT1NUJTIwbG9nb3xlbnwwfHx8fDE3NTg4MjIyMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "PREVOST logo"
+    },
+    {
+      "id": "client-cemex",
+      "description": "CEMEX Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1548431871-c2c9f2c7dc88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxDRU1FWCUyMGxvZ298ZW58MHx8fHwxNzU4ODIyMjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "CEMEX logo"
+    },
+    {
+      "id": "client-kellogs",
+      "description": "Kellogg's Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1592143040109-3a2b93d0e71b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxLZWxsb2dnJTI3cyUyMGxvZ298ZW58MHx8fHwxNzU4ODIyMjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Kellogg's logo"
+    },
+    {
+      "id": "client-mars",
+      "description": "MARS Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1736788262513-bf337aff802e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxNQVJTJTIwbG9nb3xlbnwwfHx8fDE3NTg4MjIyMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "MARS logo"
+    },
+    {
+      "id": "client-nestle",
+      "description": "Nestle Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1598781953480-23ec14cae428?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxOZXN0bGUlMjBsb2dvfGVufDB8fHx8MTc1ODgyMjIzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Nestle logo"
+    },
+    {
+      "id": "client-pg",
+      "description": "P&G Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1570472050170-e96716e4e763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8UHxlbnwwfHx8fDE3NTg4MjIyMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "P&G logo"
+    },
+    {
+      "id": "client-bimbo",
+      "description": "Bimbo Logo",
+      "imageUrl": "https://images.unsplash.com/photo-1650899853549-1be30e5f4829?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxCaW1ibyUyMGxvZ298ZW58MHx8fHwxNzU4ODIyMjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Bimbo logo"
+    }
+  ]
 }
