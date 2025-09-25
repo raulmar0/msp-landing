@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex items-center gap-2">
             <Zap className="h-6 w-6 text-primary" />
             <span className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} MSP del Noreste. All rights reserved.
+                © {new Date().getFullYear()} MSP del Noreste. Todos los derechos reservados.
             </span>
         </div>
         <div className="flex items-center gap-2">

@@ -18,10 +18,10 @@ export default function ClientLogos() {
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Trusted by Industry Leaders
+            Con la Confianza de Líderes de la Industria
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-xl/relaxed">
-            Our commitment to quality and service has earned us the trust of renowned companies.
+            Nuestro compromiso con la calidad y el servicio nos ha ganado la confianza de empresas de renombre.
           </p>
         </div>
         <div className="overflow-hidden" ref={emblaRef}>

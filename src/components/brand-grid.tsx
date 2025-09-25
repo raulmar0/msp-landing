@@ -10,10 +10,10 @@ export default function BrandGrid() {
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Our Partner Brands
+            Nuestras Marcas Asociadas
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-xl/relaxed">
-            We partner with the world's leading technology brands to bring you the best solutions.
+            Nos asociamos con las marcas de tecnología líderes en el mundo para ofrecerle las mejores soluciones.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">

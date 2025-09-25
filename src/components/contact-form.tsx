@@ -19,10 +19,10 @@ function SubmitButton() {
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Sending...
+          Enviando...
         </>
       ) : (
-        "Send Message"
+        "Enviar Mensaje"
       )}
     </Button>
   );
@@ -38,7 +38,7 @@ export default function ContactForm() {
     if (state.message) {
       if (state.success) {
         toast({
-          title: "Success!",
+          title: "¡Éxito!",
           description: state.message,
         });
         formRef.current?.reset();
@@ -55,26 +55,26 @@ export default function ContactForm() {
   return (
     <form ref={formRef} action={formAction} className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">Nombre</Label>
         <div className="relative">
           <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input id="name" name="name" placeholder="John Doe" required className="pl-10" />
+          <Input id="name" name="name" placeholder="Juan Pérez" required className="pl-10" />
         </div>
         {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name}</p>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">Correo Electrónico</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required className="pl-10" />
+          <Input id="email" name="email" type="email" placeholder="juan.perez@ejemplo.com" required className="pl-10" />
         </div>
         {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email}</p>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message">Message</Label>
+        <Label htmlFor="message">Mensaje</Label>
         <div className="relative">
           <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-          <Textarea id="message" name="message" placeholder="How can we help you?" required className="pl-10" />
+          <Textarea id="message" name="message" placeholder="¿Cómo podemos ayudarte?" required className="pl-10" />
         </div>
         {state.errors?.message && <p className="text-sm font-medium text-destructive">{state.errors.message}</p>}
       </div>

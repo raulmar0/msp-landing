@@ -4,9 +4,9 @@
 import { z } from 'zod';
 
 const contactSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+  name: z.string().min(2, { message: 'El nombre debe tener al menos 2 caracteres.' }),
+  email: z.string().email({ message: 'Por favor, introduce una dirección de correo electrónico válida.' }),
+  message: z.string().min(10, { message: 'El mensaje debe tener al menos 10 caracteres.' }),
 });
 
 export type FormState = {
@@ -35,18 +35,18 @@ export async function submitContactForm(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Please correct the errors below.',
+      message: 'Por favor, corrige los errores a continuación.',
       success: false,
     };
   }
   
   // Here you would typically send an email or save to a database.
   // For this example, we'll just log it to the console.
-  console.log('New contact form submission:');
+  console.log('Nuevo envío de formulario de contacto:');
   console.log(validatedFields.data);
 
   return {
-    message: 'Thank you for your message! We will get back to you soon.',
+    message: '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.',
     success: true,
   };
 }

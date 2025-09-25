@@ -7,10 +7,10 @@ export default function ServiceOfferings() {
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Our Services
+            Nuestros Servicios
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-xl/relaxed">
-            We provide a comprehensive range of services to meet all your industrial automation needs.
+            Ofrecemos una gama completa de servicios para satisfacer todas sus necesidades de automatización industrial.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

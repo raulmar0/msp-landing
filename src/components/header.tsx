@@ -46,13 +46,13 @@ export default function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end">
           <Button asChild className="hidden md:flex">
-            <Link href="#contact">Contact Us</Link>
+            <Link href="#contact">Contáctanos</Link>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
+                <span className="sr-only">Abrir Menú</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
@@ -71,7 +71,7 @@ export default function Header() {
                   </Link>
                 ))}
                  <Button asChild className="mt-4">
-                  <Link href="#contact">Contact Us</Link>
+                  <Link href="#contact">Contáctanos</Link>
                 </Button>
               </div>
             </SheetContent>

@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MSP del Noreste | Industrial Automation Solutions',
-  description: 'Leading provider of industrial automation products and services. We partner with top brands to deliver quality and innovation.',
-  keywords: ['Industrial Automation', 'SMC', 'BALLUFF', 'RITTAL', 'PHOENIX CONTACT', 'DELTA', 'PREVOST'],
+  title: 'MSP del Noreste | Soluciones de Automatización Industrial',
+  description: 'Proveedor líder de productos y servicios de automatización industrial. Nos asociamos con las mejores marcas para ofrecer calidad e innovación.',
+  keywords: ['Automatización Industrial', 'SMC', 'BALLUFF', 'RITTAL', 'PHOENIX CONTACT', 'DELTA', 'PREVOST'],
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

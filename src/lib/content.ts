@@ -7,10 +7,10 @@ type NavLink = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { href: '#services', label: 'Services' },
-  { href: '#brands', label: 'Brands' },
-  { href: '#clients', label: 'Clients' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#services', label: 'Servicios' },
+  { href: '#brands', label: 'Marcas' },
+  { href: '#clients', label: 'Clientes' },
+  { href: '#contact', label: 'Contacto' },
 ];
 
 type Service = {
@@ -22,32 +22,32 @@ type Service = {
 export const SERVICES: Service[] = [
   {
     icon: ShoppingCart,
-    title: 'Product Sales',
-    description: 'We offer a wide range of high-quality industrial automation products from leading brands.',
+    title: 'Venta de Productos',
+    description: 'Ofrecemos una amplia gama de productos de automatización industrial de alta calidad de marcas líderes.',
   },
   {
     icon: Wrench,
-    title: 'Technical Support',
-    description: 'Our expert team provides reliable technical support to ensure your operations run smoothly.',
+    title: 'Soporte Técnico',
+    description: 'Nuestro equipo de expertos proporciona soporte técnico confiable para garantizar que sus operaciones funcionen sin problemas.',
   },
   {
     icon: GraduationCap,
-    title: 'Professional Training',
-    description: 'Empower your team with our specialized training programs on industrial automation technologies.',
+    title: 'Capacitación Profesional',
+    description: 'Capacite a su equipo con nuestros programas de formación especializados en tecnologías de automatización industrial.',
   },
   {
     icon: ShieldCheck,
-    title: 'Quality Assurance',
-    description: 'Committed to delivering only the best, we guarantee the quality and reliability of our products.',
+    title: 'Garantía de Calidad',
+    description: 'Comprometidos a entregar solo lo mejor, garantizamos la calidad y confiabilidad de nuestros productos.',
   },
   {
     icon: Cpu,
-    title: 'Automation Projects',
-    description: 'From design to implementation, we manage complete automation projects tailored to your needs.',
+    title: 'Proyectos de Automatización',
+    description: 'Desde el diseño hasta la implementación, gestionamos proyectos completos de automatización adaptados a sus necesidades.',
   },
   {
     icon: RefreshCw,
-    title: 'Repair & Maintenance',
-    description: 'Extend the life of your equipment with our professional repair and maintenance services.',
+    title: 'Reparación y Mantenimiento',
+    description: 'Prolongue la vida útil de su equipo con nuestros servicios profesionales de reparación y mantenimiento.',
   },
 ];
