@@ -3,41 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { cn } from "@/lib/utils";
-
-const Autoplay = (emblaApi: any, options: { delay: number }) => {
-  const { delay } = options;
-  let timer = 0;
-
-  const stop = () => {
-    if (timer) window.clearTimeout(timer);
-  };
-
-  const play = () => {
-    stop();
-    timer = window.setTimeout(() => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      } else {
-        emblaApi.scrollTo(0);
-      }
-      play();
-    }, delay);
-  };
-  
-  emblaApi.on("pointerDown", stop);
-  emblaApi.on("init", play);
-  emblaApi.on("reInit", play);
-
-  return { stop };
-};
 
 export default function ClientLogos() {
   const clientLogos = PlaceHolderImages.filter(p => p.id.startsWith('client-'));
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
-    (api) => Autoplay(api, { delay: 3000 })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   ]);
   
   return (
