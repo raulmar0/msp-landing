@@ -1,34 +1,138 @@
 import Link from "next/link";
-import { Zap, Twitter, Linkedin, Facebook } from "lucide-react";
+import Image from "next/image";
+import { Twitter, Linkedin, Facebook, Phone, Mail, MapPin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-card">
-      <div className="container py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-            <Zap className="h-6 w-6 text-primary" />
-            <span className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} MSP del Noreste. Todos los derechos reservados.
-            </span>
+    <footer className="w-full bg-primary">
+      <div className="container py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Company Info */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/msp-blanco.png"
+                alt="MSP del Noreste Logo"
+                width={120}
+                height={40}
+                className="h-8 w-auto"
+                priority
+                quality={100}
+              />
+            </div>
+            <p className="text-sm text-primary-foreground/80">
+              Distribuidores oficiales de las mejores marcas en automatización industrial
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-primary-foreground">Enlaces rápidos</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link href="#services" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Servicios
+                </Link>
+              </li>
+              <li>
+                <Link href="#brands" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Marcas
+                </Link>
+              </li>
+              <li>
+                <Link href="#about" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Sobre Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact" className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-primary-foreground">Contacto</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary-foreground/80" />
+                <span className="text-sm text-primary-foreground/80">(81) 1431-2531</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary-foreground/80" />
+                <span className="text-sm text-primary-foreground/80">(81) 1334-0800</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary-foreground/80" />
+                <span className="text-sm text-primary-foreground/80">info@mspdelnoreste.com.mx</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-primary-foreground/80 mt-0.5" />
+                <div className="text-sm text-primary-foreground/80">
+                  <p>1487 Laurel #505, Bosques Real</p>
+                  <p>Cd Apodaca, N.L. 66605</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-primary-foreground">Servicios</h3>
+            <ul className="space-y-2">
+              <li>
+                <span className="text-sm text-primary-foreground/80">Venta de productos</span>
+              </li>
+              <li>
+                <span className="text-sm text-primary-foreground/80">Soporte técnico</span>
+              </li>
+              <li>
+                <span className="text-sm text-primary-foreground/80">Capacitación</span>
+              </li>
+              <li>
+                <span className="text-sm text-primary-foreground/80">Automatización</span>
+              </li>
+              <li>
+                <span className="text-sm text-primary-foreground/80">Seguridad industrial</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" asChild>
-                <Link href="#" aria-label="Twitter">
-                    <Twitter className="h-5 w-5" />
-                </Link>
+
+        {/* Bottom Footer */}
+        <div className="mt-8 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="text-sm text-primary-foreground/80">
+            © 2025 MSP Del Noreste. Todos los derechos reservados.
+          </span>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
+              <Link href="#" aria-label="Twitter">
+                <Twitter className="h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
-                <Link href="#" aria-label="LinkedIn">
-                    <Linkedin className="h-5 w-5" />
-                </Link>
+            <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
+              <Link href="#" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
-                <Link href="#" aria-label="Facebook">
-                    <Facebook className="h-5 w-5" />
-                </Link>
+            <Button variant="ghost" size="icon" asChild className="text-primary-foreground hover:bg-primary-foreground/20">
+              <Link href="#" aria-label="Facebook">
+                <Facebook className="h-5 w-5" />
+              </Link>
             </Button>
+          </div>
         </div>
       </div>
     </footer>

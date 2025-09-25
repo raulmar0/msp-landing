@@ -13,7 +13,7 @@ export default function ServiceOfferings() {
             Ofrecemos una gama completa de servicios para satisfacer todas sus necesidades de automatización industrial.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
           {SERVICES.map((service) => (
             <Card key={service.title} className="flex flex-col items-center text-center p-6 transition-transform transform hover:-translate-y-2 hover:shadow-xl">
               <CardHeader className="p-0">

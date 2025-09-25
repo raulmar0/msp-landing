@@ -7,6 +7,16 @@ export const metadata: Metadata = {
   title: 'MSP del Noreste | Soluciones de Automatización Industrial',
   description: 'Proveedor líder de productos y servicios de automatización industrial. Nos asociamos con las mejores marcas para ofrecer calidad e innovación.',
   keywords: ['Automatización Industrial', 'SMC', 'BALLUFF', 'RITTAL', 'PHOENIX CONTACT', 'DELTA', 'PREVOST'],
+  icons: {
+    icon: [
+      { url: '/favicon.jpg', sizes: '32x32', type: 'image/jpg' },
+      { url: '/favicon.jpg', sizes: '16x16', type: 'image/jpg' },
+    ],
+    shortcut: '/favicon.jpg',
+    apple: [
+      { url: '/favicon.jpg', sizes: '180x180', type: 'image/jpg' },
+    ],
+  },
 };
 
 export default function RootLayout({

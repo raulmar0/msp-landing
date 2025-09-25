@@ -1,5 +1,14 @@
 import type { LucideIcon } from "lucide-react";
-import { Cpu, GraduationCap, RefreshCw, ShieldCheck, ShoppingCart, Wrench } from "lucide-react";
+import { 
+  GraduationCap, 
+  Leaf, 
+  Cpu, 
+  Package, 
+  HardHat, 
+  Shield, 
+  Wrench, 
+  ShoppingCart 
+} from "lucide-react";
 
 type NavLink = {
   href: string;
@@ -21,33 +30,43 @@ type Service = {
 
 export const SERVICES: Service[] = [
   {
-    icon: ShoppingCart,
-    title: 'Venta de Productos',
-    description: 'Ofrecemos una amplia gama de productos de automatización industrial de alta calidad de marcas líderes.',
+    icon: GraduationCap,
+    title: 'Capacitación',
+    description: 'Ofrecer cursos y lecciones enfocándonos en la necesidad específica que el cliente requiera.',
+  },
+  {
+    icon: Leaf,
+    title: 'Ahorro de Energía',
+    description: 'Contamos con personal capacitado para encontrar soluciones que promuevan un consumo más sustentable, reduciendo los consumos de las energías operativas.',
+  },
+  {
+    icon: Cpu,
+    title: 'Ingeniería de Automatización',
+    description: 'MSP está orientado a apoyar a nuestros clientes mediante tres pilares básicos: especificación, diseño del sistema y soluciones llave en mano.',
+  },
+  {
+    icon: Package,
+    title: 'Control de inventarios',
+    description: 'Ofrecemos optimización de inventarios para prevenir paros de línea, además de asesoría en la selección del equipo.',
+  },
+  {
+    icon: HardHat,
+    title: 'Ergonomía y Manejo de Materiales',
+    description: 'Nuestras soluciones buscan el bienestar del operario para aumentar su productividad.',
+  },
+  {
+    icon: Shield,
+    title: 'Seguridad de Máquinas',
+    description: 'Nuestros equipos buscan la seguridad del operario para reducir el riesgo de accidentes en planta.',
   },
   {
     icon: Wrench,
     title: 'Soporte Técnico',
-    description: 'Nuestro equipo de expertos proporciona soporte técnico confiable para garantizar que sus operaciones funcionen sin problemas.',
+    description: 'Nuestro equipo de ventas está conformado por ingenieros capacitados, que están disponibles 24/7 para consultas técnicas.',
   },
   {
-    icon: GraduationCap,
-    title: 'Capacitación Profesional',
-    description: 'Capacite a su equipo con nuestros programas de formación especializados en tecnologías de automatización industrial.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Garantía de Calidad',
-    description: 'Comprometidos a entregar solo lo mejor, garantizamos la calidad y confiabilidad de nuestros productos.',
-  },
-  {
-    icon: Cpu,
-    title: 'Proyectos de Automatización',
-    description: 'Desde el diseño hasta la implementación, gestionamos proyectos completos de automatización adaptados a sus necesidades.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Reparación y Mantenimiento',
-    description: 'Prolongue la vida útil de su equipo con nuestros servicios profesionales de reparación y mantenimiento.',
+    icon: ShoppingCart,
+    title: 'Venta de Productos',
+    description: 'Como distribuidores oficiales, ofrecemos los mejores precios del mercado acompañados de un servicio puntual.',
   },
 ];
