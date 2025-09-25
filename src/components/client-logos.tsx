@@ -81,17 +81,16 @@ const clientLogos = [
 
 export default function ClientLogos() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+  
+  // Para dispositivos táctiles
+  const handleTouchStart = () => setIsHovered(true);
+  const handleTouchEnd = () => {
+    // Delay para permitir que el scroll se complete antes de reanudar la animación
+    setTimeout(() => setIsHovered(false), 1000);
+  };
 
   return (
     <section id="clients" className="w-full bg-card py-12 md:py-24">
@@ -108,10 +107,12 @@ export default function ClientLogos() {
         {/* Marquesina híbrida de clientes */}
         <div 
           className={`marquee-container overflow-hidden relative ${
-            (isHovered && !isMobile) || isMobile ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
           }`}
-          onMouseEnter={() => !isMobile && setIsHovered(true)}
-          onMouseLeave={() => !isMobile && setIsHovered(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{
             scrollbarWidth: 'none', // Firefox
             msOverflowStyle: 'none', // IE
@@ -119,10 +120,10 @@ export default function ClientLogos() {
         >
           <div 
             className={`marquee-content flex ${
-              ((isHovered && !isMobile) || isMobile) ? 'animate-none' : 'animate-marquee'
+              isHovered ? 'animate-none' : 'animate-marquee'
             }`}
             style={{
-              width: ((isHovered && !isMobile) || isMobile) ? 'max-content' : 'max-content',
+              width: isHovered ? 'max-content' : 'max-content',
             }}
           >
             {/* Repeticiones múltiples para contenido infinito */}
