@@ -1,18 +1,56 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card } from "@/components/ui/card";
+// Logos reales de marcas asociadas
+const brandLogos = [
+  {
+    id: "balluff",
+    name: "Balluff",
+    imageUrl: "/logos-marcas/Balluff_Logo.svg.png",
+    alt: "Balluff - Sensor Technology"
+  },
+  {
+    id: "delta-electronics", 
+    name: "Delta Electronics",
+    imageUrl: "/logos-marcas/DELTA_Electronics_Logo.png",
+    alt: "Delta Electronics - Power Solutions"
+  },
+  {
+    id: "cormac",
+    name: "Cormac",
+    imageUrl: "/logos-marcas/Logo-Cormac.png", 
+    alt: "Cormac - Industrial Solutions"
+  },
+  {
+    id: "smc",
+    name: "SMC",
+    imageUrl: "/logos-marcas/Logo-smc.png",
+    alt: "SMC - Pneumatic Solutions"
+  },
+  {
+    id: "phoenix-contact",
+    name: "Phoenix Contact", 
+    imageUrl: "/logos-marcas/Phoenix_Contact_Logo.svg",
+    alt: "Phoenix Contact - Industrial Automation"
+  },
+  {
+    id: "prevost",
+    name: "Prevost",
+    imageUrl: "/logos-marcas/Prevost-Logo.png",
+    alt: "Prevost - Compressed Air Solutions"
+  },
+  {
+    id: "rittal",
+    name: "Rittal",
+    imageUrl: "/logos-marcas/Rittal-Logo_vertical.png", 
+    alt: "Rittal - IT Infrastructure"
+  }
+];
 
 export default function BrandGrid() {
-  const brandLogos = PlaceHolderImages.filter(p => p.id.startsWith('brand-'));
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
-    Autoplay({ delay: 3500, stopOnInteraction: false })
-  ]);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <section id="brands" className="w-full py-12 md:py-24">
@@ -25,26 +63,89 @@ export default function BrandGrid() {
             Nos asociamos con las marcas de tecnología líderes en el mundo para ofrecerle las mejores soluciones.
           </p>
         </div>
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {[...brandLogos, ...brandLogos].map((brand, index) => (
-               <div key={`${brand.id}-${index}`} className="flex-shrink-0 flex-grow-0 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 p-4">
-                <Card className="p-4 flex justify-center items-center h-28 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-primary">
+        
+        {/* Marquesina híbrida con scroll manual */}
+        <div 
+          className={`marquee-container overflow-hidden relative ${
+            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+          }`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          style={{
+            scrollbarWidth: 'none', // Firefox
+            msOverflowStyle: 'none', // IE
+          }}
+        >
+          <div 
+            className={`marquee-content flex ${
+              isHovered ? 'animate-none' : 'animate-marquee'
+            }`}
+            style={{
+              width: isHovered ? 'max-content' : 'max-content',
+            }}
+          >
+            {/* Triple repetición para scroll manual suave */}
+            {Array.from({ length: 3 }, (_, seriesIndex) =>
+              brandLogos.map((brand, index) => (
+                <div 
+                  key={`${brand.id}-${seriesIndex}-${index}`} 
+                  className="flex-shrink-0 w-48 h-24 flex justify-center items-center mx-6 select-none"
+                >
                   <div className="relative w-full h-full">
                     <Image
                       src={brand.imageUrl}
-                      alt={brand.description}
+                      alt={brand.alt}
                       fill
                       style={{ objectFit: 'contain' }}
-                      data-ai-hint={brand.imageHint}
+                      className="transition-transform duration-300 hover:scale-110"
+                      draggable={false}
                     />
                   </div>
-                </Card>
-              </div>
-            ))}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .marquee-container {
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        /* Ocultar scrollbar en WebKit browsers */
+        .marquee-container::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .marquee-content {
+          width: max-content;
+          will-change: transform;
+        }
+        
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+        
+        .animate-none {
+          animation: none !important;
+        }
+        
+        /* Transición suave entre estados */
+        .marquee-content {
+          transition: all 0.3s ease;
+        }
+      `}</style>
     </section>
   );
 }
