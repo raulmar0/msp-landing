@@ -4,6 +4,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, Store } from "lucide-react";
 
 import { NAV_LINKS } from "@/lib/content";
@@ -14,6 +15,8 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -25,24 +28,31 @@ export default function Header() {
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
-      e.preventDefault();
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        const headerHeight = 96; // 6rem = 96px
-        const elementPosition = targetElement.offsetTop;
-        const offsetPosition = elementPosition - headerHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+      // Si estamos en la página principal, hacer scroll local
+      if (pathname === '/') {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
         
-        // Cerrar el menú mobile si está abierto
-        setIsOpen(false);
+        if (targetElement) {
+          const headerHeight = 96; // 6rem = 96px
+          const elementPosition = targetElement.offsetTop;
+          const offsetPosition = elementPosition - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        // Si estamos en otra página, navegar a la página principal con el anchor
+        e.preventDefault();
+        router.push(`/${href}`);
       }
     }
+    
+    // Cerrar el menú mobile en cualquier navegación
+    setIsOpen(false);
   };
 
   return (

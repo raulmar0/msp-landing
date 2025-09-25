@@ -19,6 +19,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: '#services', label: 'Servicios' },
   { href: '#brands', label: 'Marcas' },
   { href: '#clients', label: 'Clientes' },
+  { href: '/nosotros', label: 'Nosotros' },
   { href: '#contact', label: 'Contacto' },
 ];
 
