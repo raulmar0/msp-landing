@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-// Logos reales de marcas asociadas
 const brandLogos = [
   {
     id: "balluff",
@@ -51,15 +50,32 @@ const brandLogos = [
 
 export default function BrandGrid() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   
-  // Para dispositivos táctiles
-  const handleTouchStart = () => setIsHovered(true);
+  const handleTouchStart = () => {
+    setIsHovered(true);
+    setIsScrolling(false);
+  };
+
+  const handleTouchMove = () => {
+    setIsScrolling(true);
+  };
+  
   const handleTouchEnd = () => {
-    // Delay para permitir que el scroll se complete antes de reanudar la animación
-    setTimeout(() => setIsHovered(false), 1000);
+    if (isScrolling) {
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsScrolling(false);
+      }, 1500);
+    } else {
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsScrolling(false);
+      }, 500);
+    }
   };
 
   return (
@@ -74,29 +90,26 @@ export default function BrandGrid() {
           </p>
         </div>
         
-        {/* Marquesina híbrida con scroll manual */}
         <div 
-          className={`marquee-container overflow-hidden relative ${
-            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+          className={`marquee-container relative ${
+            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : 'overflow-hidden'
           }`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           style={{
-            scrollbarWidth: 'none', // Firefox
-            msOverflowStyle: 'none', // IE
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch',
           }}
         >
           <div 
             className={`marquee-content flex ${
               isHovered ? 'animate-none' : 'animate-marquee'
             }`}
-            style={{
-              width: isHovered ? 'max-content' : 'max-content',
-            }}
           >
-            {/* Repeticiones múltiples para contenido infinito */}
             {Array.from({ length: 6 }, (_, seriesIndex) =>
               brandLogos.map((brand, index) => (
                 <div 

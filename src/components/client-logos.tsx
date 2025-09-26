@@ -81,15 +81,34 @@ const clientLogos = [
 
 export default function ClientLogos() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   
   // Para dispositivos táctiles
-  const handleTouchStart = () => setIsHovered(true);
+  const handleTouchStart = () => {
+    setIsHovered(true);
+    setIsScrolling(false);
+  };
+
+  const handleTouchMove = () => {
+    setIsScrolling(true);
+  };
+  
   const handleTouchEnd = () => {
-    // Delay para permitir que el scroll se complete antes de reanudar la animación
-    setTimeout(() => setIsHovered(false), 1000);
+    // Solo reanudar si el usuario hizo scroll, sino mantener pausado por un momento
+    if (isScrolling) {
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsScrolling(false);
+      }, 1500);
+    } else {
+      setTimeout(() => {
+        setIsHovered(false);
+        setIsScrolling(false);
+      }, 500);
+    }
   };
 
   return (
@@ -106,16 +125,18 @@ export default function ClientLogos() {
         
         {/* Marquesina híbrida de clientes */}
         <div 
-          className={`marquee-container overflow-hidden relative ${
-            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : ''
+          className={`marquee-container relative ${
+            isHovered ? 'overflow-x-auto cursor-grab active:cursor-grabbing' : 'overflow-hidden'
           }`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           style={{
             scrollbarWidth: 'none', // Firefox
             msOverflowStyle: 'none', // IE
+            WebkitOverflowScrolling: 'touch', // Smooth scrolling en iOS
           }}
         >
           <div 
