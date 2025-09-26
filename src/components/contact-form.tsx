@@ -57,7 +57,7 @@ ${message}
   const isFormValid = formData.name.trim() && formData.email.trim() && formData.message.trim();
 
   return (
-    <div className="space-y-6">
+    <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleWhatsAppSend(); }}>
       <div className="space-y-2">
         <Label htmlFor="name">Nombre</Label>
         <div className="relative">
@@ -108,14 +108,13 @@ ${message}
       </div>
       
       <Button 
-        type="button"
-        onClick={handleWhatsAppSend}
+        type="submit"
         disabled={!isFormValid}
         className="w-full bg-green-600 hover:bg-green-700 text-white"
       >
         <WhatsAppIcon className="mr-2 h-4 w-4" />
         Enviar WhatsApp
       </Button>
-    </div>
+    </form>
   );
 }

@@ -34,24 +34,26 @@ export default function BrandShowcaseCarousel() {
           <CarouselContent>
             {promoImages.map((image) => (
               <CarouselItem key={image.id}>
-                <div className="relative h-[300px] md:h-[500px] w-full">
-                  <Image
-                    src={image.imageUrl}
-                    alt={image.description}
-                    fill
-                    className="rounded-xl object-cover"
-                    data-ai-hint={image.imageHint}
-                  />
+                <article className="relative h-[300px] md:h-[500px] w-full">
+                  <figure>
+                    <Image
+                      src={image.imageUrl}
+                      alt={image.description}
+                      fill
+                      className="rounded-xl object-cover"
+                      data-ai-hint={image.imageHint}
+                    />
+                  </figure>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl" />
-                  <div className="absolute bottom-0 left-0 p-8 md:p-12">
+                  <header className="absolute bottom-0 left-0 p-8 md:p-12">
                      <h1 className="font-headline text-3xl md:text-5xl font-bold text-white shadow-2xl">
                       Excelencia en Automatización Industrial
                     </h1>
                     <p className="mt-2 max-w-lg text-base md:text-lg text-white/90">
                       Su socio de confianza para productos y servicios de automatización de primer nivel.
                     </p>
-                  </div>
-                </div>
+                  </header>
+                </article>
               </CarouselItem>
             ))}
           </CarouselContent>

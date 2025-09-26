@@ -125,14 +125,14 @@ export default function ClientLogos() {
   return (
     <section id="clients" className="w-full bg-card py-12 md:py-24">
       <div className="container">
-        <div className="flex flex-col items-center text-center mb-12">
+        <header className="flex flex-col items-center text-center mb-12">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Con la Confianza de Líderes de la Industria
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-xl/relaxed">
             Nuestro compromiso con la calidad y el servicio nos ha ganado la confianza de empresas de renombre.
           </p>
-        </div>
+        </header>
         
         {/* Marquesina híbrida de clientes */}
         <div 
