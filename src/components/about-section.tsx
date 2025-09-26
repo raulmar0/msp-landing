@@ -30,7 +30,7 @@ export default function AboutSection() {
           <div className="relative max-w-6xl mx-auto">
             <div className="relative overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="/equipo.png"
+                src="/equipo.jpg"
                 alt="Equipo MSP del Noreste"
                 width={1200}
                 height={800}

@@ -81,33 +81,44 @@ const clientLogos = [
 
 export default function ClientLogos() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   
-  // Para dispositivos táctiles
-  const handleTouchStart = () => {
+  // Manejo mejorado de eventos táctiles
+  const handleTouchStart = (e: React.TouchEvent) => {
     setIsHovered(true);
-    setIsScrolling(false);
+    setIsDragging(false);
+    setTouchStartX(e.touches[0].clientX);
   };
 
-  const handleTouchMove = () => {
-    setIsScrolling(true);
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touchCurrentX = e.touches[0].clientX;
+    const touchDiff = Math.abs(touchCurrentX - touchStartX);
+    
+    // Solo considerar como dragging si hay un movimiento significativo
+    if (touchDiff > 10) {
+      setIsDragging(true);
+    }
   };
   
   const handleTouchEnd = () => {
-    // Solo reanudar si el usuario hizo scroll, sino mantener pausado por un momento
-    if (isScrolling) {
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsScrolling(false);
-      }, 1500);
-    } else {
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsScrolling(false);
-      }, 500);
+    // Reanudar después de un timeout más largo si el usuario hizo scroll
+    const timeout = isDragging ? 2000 : 1000;
+    
+    setTimeout(() => {
+      setIsHovered(false);
+      setIsDragging(false);
+    }, timeout);
+  };
+
+  // Manejar scroll con rueda del mouse en desktop
+  const handleWheel = (e: React.WheelEvent) => {
+    if (isHovered) {
+      // Permitir scroll horizontal natural
+      e.currentTarget.scrollLeft += e.deltaY;
     }
   };
 
@@ -133,6 +144,7 @@ export default function ClientLogos() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onWheel={handleWheel}
           style={{
             scrollbarWidth: 'none', // Firefox
             msOverflowStyle: 'none', // IE
@@ -144,7 +156,7 @@ export default function ClientLogos() {
               isHovered ? 'animate-none' : 'animate-marquee'
             }`}
             style={{
-              width: isHovered ? 'max-content' : 'max-content',
+              width: 'max-content',
             }}
           >
             {/* Repeticiones múltiples para contenido infinito */}
@@ -175,6 +187,8 @@ export default function ClientLogos() {
         .marquee-container {
           width: 100%;
           max-width: 100%;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
         }
         
         /* Ocultar scrollbar en WebKit browsers */
@@ -185,6 +199,13 @@ export default function ClientLogos() {
         .marquee-content {
           width: max-content;
           will-change: transform;
+        }
+        
+        /* Mejorar el comportamiento táctil en mobile */
+        @media (max-width: 768px) {
+          .marquee-container {
+            touch-action: pan-x;
+          }
         }
         
         @keyframes marquee {

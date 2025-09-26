@@ -50,31 +50,44 @@ const brandLogos = [
 
 export default function BrandGrid() {
   const [isHovered, setIsHovered] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   
-  const handleTouchStart = () => {
+  // Manejo mejorado de eventos táctiles
+  const handleTouchStart = (e: React.TouchEvent) => {
     setIsHovered(true);
-    setIsScrolling(false);
+    setIsDragging(false);
+    setTouchStartX(e.touches[0].clientX);
   };
 
-  const handleTouchMove = () => {
-    setIsScrolling(true);
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touchCurrentX = e.touches[0].clientX;
+    const touchDiff = Math.abs(touchCurrentX - touchStartX);
+    
+    // Solo considerar como dragging si hay un movimiento significativo
+    if (touchDiff > 10) {
+      setIsDragging(true);
+    }
   };
   
   const handleTouchEnd = () => {
-    if (isScrolling) {
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsScrolling(false);
-      }, 1500);
-    } else {
-      setTimeout(() => {
-        setIsHovered(false);
-        setIsScrolling(false);
-      }, 500);
+    // Reanudar después de un timeout más largo si el usuario hizo scroll
+    const timeout = isDragging ? 2000 : 1000;
+    
+    setTimeout(() => {
+      setIsHovered(false);
+      setIsDragging(false);
+    }, timeout);
+  };
+
+  // Manejar scroll con rueda del mouse en desktop
+  const handleWheel = (e: React.WheelEvent) => {
+    if (isHovered) {
+      // Permitir scroll horizontal natural
+      e.currentTarget.scrollLeft += e.deltaY;
     }
   };
 
@@ -99,6 +112,7 @@ export default function BrandGrid() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onWheel={handleWheel}
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -109,6 +123,9 @@ export default function BrandGrid() {
             className={`marquee-content flex ${
               isHovered ? 'animate-none' : 'animate-marquee'
             }`}
+            style={{
+              width: 'max-content',
+            }}
           >
             {Array.from({ length: 6 }, (_, seriesIndex) =>
               brandLogos.map((brand, index) => (
@@ -137,6 +154,8 @@ export default function BrandGrid() {
         .marquee-container {
           width: 100%;
           max-width: 100%;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
         }
         
         /* Ocultar scrollbar en WebKit browsers */
@@ -147,6 +166,13 @@ export default function BrandGrid() {
         .marquee-content {
           width: max-content;
           will-change: transform;
+        }
+        
+        /* Mejorar el comportamiento táctil en mobile */
+        @media (max-width: 768px) {
+          .marquee-container {
+            touch-action: pan-x;
+          }
         }
         
         @keyframes marquee {
