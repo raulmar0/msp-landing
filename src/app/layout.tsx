@@ -12,6 +12,26 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon.jpg',
   },
+  openGraph: {
+    title: 'MSP del Noreste | Soluciones de Automatización Industrial',
+    description: 'Proveedor líder de productos y servicios de automatización industrial. Nos asociamos con las mejores marcas para ofrecer calidad e innovación.',
+    images: [
+      {
+        url: '/favicon.jpg',
+        width: 512,
+        height: 512,
+        alt: 'MSP del Noreste - Automatización Industrial',
+      },
+    ],
+    locale: 'es_MX',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'MSP del Noreste | Soluciones de Automatización Industrial',
+    description: 'Proveedor líder de productos y servicios de automatización industrial. Nos asociamos con las mejores marcas para ofrecer calidad e innovación.',
+    images: ['/favicon.jpg'],
+  },
 };
 
 export default function RootLayout({
