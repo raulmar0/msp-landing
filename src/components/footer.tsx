@@ -67,22 +67,42 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary-foreground/80" />
-                <span className="text-sm text-primary-foreground/80">(81) 1431-2531</span>
+                <a 
+                  href="tel:+528114312531"
+                  className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors cursor-pointer"
+                >
+                  (81) 1431-2531
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary-foreground/80" />
-                <span className="text-sm text-primary-foreground/80">(81) 1334-0800</span>
+                <a 
+                  href="tel:+528113340800"
+                  className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors cursor-pointer"
+                >
+                  (81) 1334-0800
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary-foreground/80" />
-                <span className="text-sm text-primary-foreground/80">info@mspdelnoreste.com.mx</span>
+                <a 
+                  href="mailto:info@mspdelnoreste.com.mx"
+                  className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors cursor-pointer"
+                >
+                  info@mspdelnoreste.com.mx
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-primary-foreground/80 mt-0.5" />
-                <div className="text-sm text-primary-foreground/80">
+                <a 
+                  href="https://maps.google.com/?q=1487+Laurel+505,+Bosques+Real,+Cd+Apodaca,+N.L.+66605"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors cursor-pointer"
+                >
                   <p>1487 Laurel #505, Bosques Real</p>
                   <p>Cd Apodaca, N.L. 66605</p>
-                </div>
+                </a>
               </li>
             </ul>
           </div>

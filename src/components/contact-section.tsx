@@ -28,8 +28,18 @@ export default function ContactSection() {
                                         <div>
                                             <h3 className="font-semibold text-lg mb-2">Teléfonos</h3>
                                             <div className="space-y-1 text-muted-foreground">
-                                                <p>(81) 1431-2531</p>
-                                                <p>(81) 1334-0800</p>
+                                                <a 
+                                                    href="tel:+528114312531"
+                                                    className="block hover:text-primary transition-colors cursor-pointer"
+                                                >
+                                                    (81) 1431-2531
+                                                </a>
+                                                <a 
+                                                    href="tel:+528113340800"
+                                                    className="block hover:text-primary transition-colors cursor-pointer"
+                                                >
+                                                    (81) 1334-0800
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -61,10 +71,15 @@ export default function ContactSection() {
                                         <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                                         <div>
                                             <h3 className="font-semibold text-lg mb-2">Dirección</h3>
-                                            <p className="text-muted-foreground">
+                                            <a 
+                                                href="https://maps.google.com/?q=1487+Laurel+505,+Bosques+Real,+Cd+Apodaca,+N.L.+66605"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                                            >
                                                 1487 Laurel #505, Bosques Real,<br />
                                                 Cd Apodaca, N.L. 66605
-                                            </p>
+                                            </a>
                                         </div>
                                     </div>
                                 </CardContent>
