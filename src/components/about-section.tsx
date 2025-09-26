@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Heart, Award, BookOpen, CheckCircle } from "lucide-react";
 
+// Placeholder base64 optimizado para el equipo
+const TEAM_IMAGE_PLACEHOLDER = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAMABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQYI/8QAKBAAAQMCBAQHAAAAAAAAAAAAAQIDAAQFBhEHEiEiE0FRcTFhcnOBkqP/xAAWAQEBAQAAAAAAAAAAAAAAAAAGBwX/xAAkEQABAwIFAwUAAAAAAAAAAAABAAIDBAURBhMhMUEyUWGRsf/aAAwDAQACEQMRAD8Az1hmL12yt7m2uNncpMhLgXnNUNKBGxP8j3HmNhcOp9CZttOYiLq6j5XAdEJ/auvfvqTYsP2G6W9h6qnKgvxkxHbJAD8nVOynXAKU9eo7eVTGg+WFY6tMObGq2TKdCz4JVpKFK6bTmNuKlhKXPJnvqvIU0s8sKPnCp8LyxC06pT9vDm5vYjdTiBb7eWH43xfyR8alPZWIIWj3j5wqfCpxQY6xjrJBfBHIP/K3/9k=";
+
 export default function AboutSection() {
   return (
     <section id="about" className="w-full py-12 md:py-24 bg-muted/50">
@@ -28,15 +31,18 @@ export default function AboutSection() {
         {/* Imagen del equipo */}
         <div className="mb-16">
           <div className="relative max-w-6xl mx-auto">
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
+            <div className="relative overflow-hidden rounded-xl shadow-lg bg-muted aspect-video">
               <Image
                 src="/equipo.jpg"
-                alt="Equipo MSP del Noreste"
-                width={1200}
-                height={800}
-                className="w-full h-auto object-contain bg-white"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                alt="Equipo MSP del Noreste - Especialistas en automatización industrial"
+                fill
+                className="object-cover transition-opacity duration-300"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
                 priority
+                loading="eager"
+                quality={85}
+                placeholder="blur"
+                blurDataURL={TEAM_IMAGE_PLACEHOLDER}
               />
             </div>
           </div>

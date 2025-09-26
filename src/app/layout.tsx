@@ -25,6 +25,22 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        {/* Preload imagen crítica del equipo */}
+        <link
+          rel="preload"
+          as="image"
+          href="/equipo.jpg"
+          type="image/jpeg"
+          fetchPriority="high"
+        />
+        {/* Preload logo crítico */}
+        <link
+          rel="preload"
+          as="image"
+          href="/msp-blanco.png"
+          type="image/png"
+          fetchPriority="high"
+        />
       </head>
       <body className={cn('min-h-screen bg-background font-body antialiased')}>
         {children}
