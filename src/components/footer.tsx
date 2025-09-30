@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="w-full bg-primary">
       <div className="container py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Company Info */}
           <div className="space-y-4">
@@ -107,27 +107,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary-foreground">Servicios</h3>
-            <ul className="space-y-2">
-              <li>
-                <span className="text-sm text-primary-foreground/80">Venta de productos</span>
-              </li>
-              <li>
-                <span className="text-sm text-primary-foreground/80">Soporte técnico</span>
-              </li>
-              <li>
-                <span className="text-sm text-primary-foreground/80">Capacitación</span>
-              </li>
-              <li>
-                <span className="text-sm text-primary-foreground/80">Automatización</span>
-              </li>
-              <li>
-                <span className="text-sm text-primary-foreground/80">Seguridad industrial</span>
-              </li>
-            </ul>
-          </div>
+          {/* Services column removed as requested */}
 
         </div>
 
