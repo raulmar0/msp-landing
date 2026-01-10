@@ -69,13 +69,13 @@
   
   /* Compensar altura del header sticky en navegación por ancla */
   html {
-    scroll-padding-top: 6rem; /* 96px = h-24 del header */
+    scroll-padding-top: 4rem; /* 64px = h-16 del header */
   }
   
   /* Ajuste específico para mobile donde el header puede tener diferente comportamiento */
   @media (max-width: 768px) {
     html {
-      scroll-padding-top: 7rem; /* 112px para compensar mejor en mobile */
+      scroll-padding-top: 5rem; /* 80px para compensar mejor en mobile */
     }
   }
   

@@ -35,7 +35,7 @@ export default function Header() {
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
-          const headerHeight = 96; // 6rem = 96px
+          const headerHeight = 64; // 4rem = 64px
           const elementPosition = targetElement.offsetTop;
           const offsetPosition = elementPosition - headerHeight;
 
@@ -62,14 +62,14 @@ export default function Header() {
         isScrolled ? "border-b shadow-lg" : ""
       )}
     >
-      <div className="container flex h-24 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/msp-blanco.png"
             alt="MSP del Noreste Logo"
             width={160}
             height={60}
-            className="h-14 w-auto"
+            className="h-10 w-auto"
             priority
             quality={100}
           />
@@ -120,7 +120,7 @@ export default function Header() {
                   alt="MSP del Noreste Logo"
                   width={160}
                   height={60}
-                  className="h-14 w-auto"
+                  className="h-10 w-auto"
                   priority
                   quality={100}
                 />
