@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { brandCarouselData } from "@/lib/brand-carousel-data";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/carousel";
 
 export default function BrandShowcaseCarousel() {
-  const promoImages = PlaceHolderImages.filter(p => p.id.startsWith('promo-'));
+  // Usar los datos de las marcas en vez de PlaceHolderImages
+  const promoImages = brandCarouselData;
 
   return (
     <section className="w-full pt-4 pb-12 md:pt-8 md:pb-20">
@@ -46,11 +47,11 @@ export default function BrandShowcaseCarousel() {
                   </figure>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl" />
                   <header className="absolute bottom-0 left-0 p-8 md:p-12">
-                     <h1 className="font-headline text-3xl md:text-5xl font-bold text-white shadow-2xl">
-                      Excelencia en Automatización Industrial
+                    <h1 className="font-headline text-3xl md:text-5xl font-bold text-white shadow-2xl">
+                      {image.name}
                     </h1>
                     <p className="mt-2 max-w-lg text-base md:text-lg text-white/90">
-                      Su socio de confianza para productos y servicios de automatización de primer nivel.
+                      {image.description}
                     </p>
                   </header>
                 </article>
