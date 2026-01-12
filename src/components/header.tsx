@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -59,7 +58,7 @@ export default function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full bg-primary transition-all duration-300",
-        isScrolled ? "border-b shadow-lg" : ""
+        isScrolled ? "shadow-lg" : ""
       )}
     >
       <div className="container flex h-16 items-center justify-between">
